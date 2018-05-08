@@ -1,6 +1,10 @@
 # tfe-saas-demo-setup
 Scripts and config files used to setup a TFE SaaS demo
 
+## IMPORTANT NOTE!
+
+Make sure to destroy your resources before you clean up your workspaces (if you clean them up).   You probably don't need to delete your workspaces, but if you do, destroy first!
+
 
 ## Prerequisites
 
@@ -146,3 +150,9 @@ git push origin dev-merge-demo
   * Click each Configure(d) button and Check Deferred for all variables. --> Next
   * Show the resulting output which is what's used to create app42
   
+### Demo Destroy
+Instances have identifier named based on the workspace-environment making it easier to identify which workspaces have instances launched.
+
+For all workspaces that have instances:
+* Click Workspace-->Settings-->Queue Destroy Plan
+* Apply
