@@ -38,7 +38,7 @@ It's best to fork the repos below so that you don't end up with merge conflicts 
 * https://github.com/grove-mountain/terraform-gpc-compute-instance
 * https://github.com/grove-mountain/tfe-demo-application42
 
-You can just clone this repo as we shouldn't be updating this, but oyou can fork it as well.
+You can just clone this repo as we shouldn't be updating this, but you can fork it as well.
 
 * https://github.com/grove-mountain/tfe-saas-demo-setup
 
@@ -52,7 +52,7 @@ You can just clone this repo as we shouldn't be updating this, but oyou can fork
 ```
 create_aws_workspace.sh
 create_gcp_workspace.sh
-cerate_app42_workspace.sh
+create_app42_workspace.sh
 ```
 
 * Open up each workspace and add in your credentials.  Check Sensitive.
@@ -64,8 +64,7 @@ cerate_app42_workspace.sh
 
 ## Script
 
-For workspaces with multiple environments, you can 
-
+### Demo User/Group management
 * Open three browsers.  They cannot share login information as they will login to three separate accounts.
 * Login to your main account.  This is the owners browser
 * Login to your ops account in the second browser.
@@ -90,10 +89,12 @@ For workspaces with multiple environments, you can
     * Add team
   * Point out the developers browser now showing the new workspace
 
+### Demo manual applies
 * In the developers workspace
   * Click app42-dev
   * Queue Plan / Apply
   * Click Settings --> Auto Apply --> Save settings
+    * This is setup for later
 
 * In operators workspace 
   * Click gcp-compute-instance-dev
@@ -101,6 +102,7 @@ For workspaces with multiple environments, you can
 
 * Show instances started in all clouds.
 
+### Demo Auto Apply/Github workflows
 * In tfe-demo-application42 repo
 ```
 git checkout dev
@@ -115,6 +117,7 @@ git push origin dev-merge-demo
   * Merge dev-merge-demo into dev in Github
   * Show auto-run in app42-dev
 
+### Demo private registry
 * Add a module(s) to private registry
   * Click Modules up top
   * Add Module
@@ -124,7 +127,7 @@ git push origin dev-merge-demo
     * e.g. grove-mountain/terraform-gpc-compute-instance
   * Repeat for terraform-aws-ec2-instance
 
-* Demo Sentinel (If it's working!)
+### Demo Sentinel
   * In operators workspace 
     * Click aws-ec2-instance-dev
     * Click Variables
@@ -136,6 +139,7 @@ git push origin dev-merge-demo
     * Life Cycle Management
     * Application Automation (like consul join members)
 
+### Demo Configuration Builder
 * Demo Configuration Builder
   * Modules --> Design Confiugration
   * Add Compute Instance and EC2 Instance --> Next
