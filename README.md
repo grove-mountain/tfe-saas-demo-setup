@@ -65,6 +65,7 @@ create_gcp_workspace.sh
 create_app42_workspace.sh
 ```
 
+### In your TFE SaaS Organization
 * Open up each workspace and add in your credentials.  Check Sensitive.
   * For AWS add Environment Variable: AWS_SECRET_ACCESS_KEY that matches your AWS_ACCESS_KEY_ID
   * For GCP add your service account JSON credentials in:    
