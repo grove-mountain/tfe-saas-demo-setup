@@ -1,7 +1,13 @@
 # tfe-saas-demo-setup
 Scripts and config files used to setup a TFE SaaS demo
 
-## IMPORTANT NOTE!
+## IMPORTANT NOTES!
+
+Do not check in your actual AWS_SECRET_ACCESS_KEY to version control!  
+Do not check in your actual AWS_SECRET_ACCESS_KEY to version control!  
+Do not check in your actual AWS_SECRET_ACCESS_KEY to version control!  
+
+Death to script kiddies!
 
 Make sure to destroy your resources before you clean up your workspaces (if you clean them up).   You probably don't need to delete your workspaces, but if you do, destroy first!
 
