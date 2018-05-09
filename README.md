@@ -138,29 +138,31 @@ create_app42_workspace.sh
 * In the developers workspace
   * Click app42-dev
   * Queue Plan / Apply
-  * Click Settings --> Auto Apply --> Save settings
-    * This is setup for later
 
 * In operators workspace 
   * Click gcp-compute-instance-dev
   * Queue Plan / Apply
+  * Click aws-ec2-instance-dev
+  * Queue Plan / Apply
+  * Click Settings --> Auto Apply --> Save settings
+    * This is setup for later
 
 * Show instances started in all clouds.
 
 ### Demo Auto Apply/Github workflows
-* In tfe-demo-application42 repo
+* In aws-ec2-instance repo
 ```
 git checkout dev
 git checkout -b dev-merge-demo
 ```
-  * Edit variables.tf.
-    * Change variable "ec2_instance_aws_region" to us-west-1
+  * Edit main.tf.
+    * Add to tags: Description = "Demo EC2 Instance"
 ```
 git commit variables.tf -m"Demoing auto apply via merge"
 git push origin dev-merge-demo
 ```
   * Merge dev-merge-demo into dev in Github
-  * Show auto-run in app42-dev
+  * Show auto-run in aws-ec2-instance-dev
 
 ### Demo private registry
 * Add a module(s) to private registry
