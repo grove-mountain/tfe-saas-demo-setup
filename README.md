@@ -81,6 +81,13 @@ You can just clone this repo as we shouldn't be updating this, but you can fork 
 
 ## Setup
 
+* Get your oauth_token used for tfe (use the organization you want to launch in).  You'll set this as OAUTH_ID in the env.sh below. Make sure TERRAFORM_ENTERPRISE_TOKEN is set to the token you created above.
+
+```
+ORGANIZATION=jake-lundberg
+tfe oauth_tokens list --organization=${ORGANIZATION} --only=id --value
+```
+
 * cd tfe-saas-demo-setup
 * Copy env.sh.example --> env.sh
 * Edit env.sh .  Uncomment and change variables
@@ -103,7 +110,7 @@ create_app42_workspace.sh
 ## Script
 
 ### Demo User/Group management
-* Open three browsers.  They cannot share login information as they will login to three separate accounts.
+* Open three different browsers (e.g. chrome, firefox, safari).  They cannot share login information as they will login to three separate accounts.
 * Login to your main account.  This is the owners browser
 * Login to your ops account in the second browser.
 * Login to your dev account in the third browser.
