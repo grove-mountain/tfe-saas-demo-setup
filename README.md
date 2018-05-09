@@ -57,6 +57,8 @@ export TERRAFORM_ENTERPRISE_TOKEN=$(cat ~/.tfe_saas_token)
 
 ### Install Terraform Enterprise CLI
 
+_WARNING_:  There are two different TFE CLI tools.  If you've installed https://github.com/hashicorp/tfe-cli, move it out of the way for this demo and move it back later, or just update your PATH to access the gem version below first.   
+
 Install Maciej's TFE CLI client  https://github.com/skierkowski/terraform-enterprise-cli
 
 The easiest way is just install the gem:
