@@ -2,7 +2,7 @@
 #### Customize for your environment
 
 # Whether to have TFE CLI show debug output
-DEBUG=true
+DEBUG=false
 
 # TFE SaaS Organization to install workspaces into.  This should be your own organization
 # ORGANIZATION=jake-lundberg

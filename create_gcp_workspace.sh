@@ -6,6 +6,7 @@ create_variables () {
   # GCP specific variables to create
   # DO NOT PUT YOUR SECRETS (gcp_credentials) HERE!!!   Do this via the GUI
   CATEGORY=terraform
+  create_variable gcp_credentials "PasteYourJSON&MakeMeSensitive"
   create_variable gcp_project ${PROJECT}
   create_variable gcp_region ${REGION}
   create_variable gcp_zone ${ZONE}
