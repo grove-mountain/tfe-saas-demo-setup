@@ -45,7 +45,7 @@ Don't create new organizations for the new users, just leave them at the create 
 
 e.g.
 ```
-echo \<token> > ~/.tfe_saas_token && chmod 0600 ~/.tfe_saas_token
+echo sometokenstringthisisnot > ~/.tfe_saas_token && chmod 0600 ~/.tfe_saas_token
 ```
 
 Later, when running the TFE cli, you can set the environment variable TERRAFORM_ENTERPRISE_TOKEN
