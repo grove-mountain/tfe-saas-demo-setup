@@ -9,10 +9,16 @@ Do not check in your actual AWS_SECRET_ACCESS_KEY to version control!
 
 Death to script kiddies!
 
-Make sure to destroy your resources before you clean up your workspaces (if you clean them up).   You probably don't need to delete your workspaces, but if you do, destroy first!
+Make sure to destroy your resources before you clean up your workspaces (if you clean them up).   You probably don't need to delete your workspaces, but if you do, destroy all resources first (or you will have to to delete by hand).
 
 
 ## Prerequisites
+
+### Credentials for AWS, GCP, Azure
+
+You'll use these to configure TFE for accessing the clouds.
+
+NOTE:  Azure is currently not included here.   It will be added shortly.
 
 ### Three different browsers
 
@@ -29,6 +35,25 @@ After your organization is created, you need to create an ops and dev user to lo
 e.g 
 * jlundberg+tfeops@hashicorp.com = grovemountain-ops 
 * jlundberg+tfedev@hashicorp.com = grovemountain-dev
+
+Don't create new organizations for the new users, just leave them at the create organization screen and add them to your org once they are created.
+### TFE SaaS token
+
+* Go to: https://app.terraform.io/app/settings/tokens
+* Input Description: \<Helpful Description> --> Generate Token
+* Save to a file or put in 1Password
+
+e.g.
+```
+echo \<token> > ~/.tfe_saas_token && chmod 0600 ~/.tfe_saas_token
+```
+
+Later, when running the TFE cli, you can set the environment variable TERRAFORM_ENTERPRISE_TOKEN
+
+e.g.
+```
+export TERRAFORM_ENTERPRISE_TOKEN=$(cat ~/.tfe_saas_token)
+```
 
 ### Install Terraform Enterprise CLI
 
