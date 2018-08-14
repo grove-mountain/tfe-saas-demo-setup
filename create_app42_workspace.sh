@@ -1,5 +1,22 @@
 #!/bin/bash
 
+
+if [ -z "${TERRAFORM_ENTERPRISE_TOKEN}" ];then
+  echo "TERRAFORM_ENTERPRISE_TOKEN is not set, tfe cli will not be able to authenticate"
+  echo "Set this to a user token with permissions to create workspaces"
+  exit 1
+fi
+
+# Read in google credentials JSON file.
+if [ ! -f ${GCP_CREDENTIALS_FILE} ];then
+  echo "You need to have a Google Credentials JSON file with Google Compute Admin privileges"
+  echo "Set GCP_CREDENTIALS_FILE=<file location>"
+  exit 1
+fi
+
+GOOGLE_CREDENTIALS=$(cat ${GCP_CREDENTIALS_FILE})
+
+
 # This function should be in all different cloud vendor scripts
 # as what we create in each cloud may be slightly different
 create_variables () {
@@ -17,10 +34,11 @@ create_variables () {
   create_variable ec2_instance_owner ${OWNER}
   create_variable ec2_instance_ttl ${TTL}
   # Environment variables
-  # DO NOT PUT YOUR SECRETS HERE!!!   Do this via the GUI
   CATEGORY=env
   create_variable CONFIRM_DESTROY 1
-  create_variable AWS_ACCESS_KEY_ID ${AWS_ACCESS_KEY}
+  create_variable GOOGLE_CREDENTIALS ${GOOGLE_CREDENTIALS} --sensitive
+  create_variable AWS_ACCESS_KEY_ID ${AWS_ACCESS_KEY} --sensitive
+  create_variable AWS_SECRET_ACCESS_KEY ${AWS_SECRET_ACCESS_KEY} --sensitive
 }
 
 # Load any custom environment variables used in this script
