@@ -16,15 +16,27 @@ Make sure to destroy your resources before you clean up your workspaces (if you 
 
 ### Credentials for AWS, GCP, Azure
 
-You'll use these to configure TFE for accessing the clouds.
+You'll use these to configure TFE for accessing the clouds. 
+Each of the checkouts below have basic instructions for how to set these up.
 
-NOTE:  Azure is currently not included here.   It will be added shortly.
+### Fork demo repos
 
-### Three different browsers
+It's best to fork the repos below so that you don't end up with merge conflicts due to other people possibly merging to the same branches (like dev/qa/prod).  
 
-You need to have three isolated browser environments that don't cross login details.   You can probably get away with two browsers with one private window and public window in one browser and another public window in another.  Oddly, three private windows doesn't seem to work (or at least didn't for me).   
+I typically put these all under one subfolder
+e.g.
+```
+~/git/terraform/terraform-multi-demo
+```
+#### Repos
+* https://github.com/grove-mountain/terraform-aws-ec2-instance
+* https://github.com/grove-mountain/terraform-gpc-compute-instance
+* https://github.com/grove-mountain/tfe-demo-application42
 
-I'm running Chrome, Firefox and Safari. But I tested with Chrome and a Public Firefox and Private Firefox as well.   
+You can just clone this repo as we shouldn't be updating this, but you can fork it as well.
+
+* https://github.com/grove-mountain/tfe-saas-demo-setup
+
 
 ### Create TFE SaaS organization and extra users
 
@@ -36,8 +48,9 @@ e.g
 * jlundberg+tfeops@hashicorp.com = grovemountain-ops 
 * jlundberg+tfedev@hashicorp.com = grovemountain-dev
 
-Don't create new organizations for the new users, just leave them at the create organization screen and add them to your org once they are created.
-### TFE SaaS token
+**Don't create new organizations for the new users**, just leave them at the create organization screen and add them to your org once they are created.
+
+### Create TFE SaaS token
 
 * Go to: https://app.terraform.io/app/settings/tokens
 * Input Description: \<Helpful Description> --> Generate Token
@@ -61,23 +74,12 @@ _WARNING_:  There are two different TFE CLI tools.  If you've installed https://
 
 Install Maciej's TFE CLI client  https://github.com/skierkowski/terraform-enterprise-cli
 
-The easiest way is just install the gem:
+The easiest way is just install the gem.  This does mean you will need to have ruby and gems installed on your system:
 
 ```
 gem install terraform-enterprise-client
 ```
 
-### Fork demo repos
-
-It's best to fork the repos below so that you don't end up with merge conflicts due to other people possibly merging to the same branches (like dev/qa/prod).  
-
-* https://github.com/grove-mountain/terraform-aws-ec2-instance
-* https://github.com/grove-mountain/terraform-gpc-compute-instance
-* https://github.com/grove-mountain/tfe-demo-application42
-
-You can just clone this repo as we shouldn't be updating this, but you can fork it as well.
-
-* https://github.com/grove-mountain/tfe-saas-demo-setup
 
 ## Setup
 
@@ -96,8 +98,15 @@ tfe oauth_tokens list --organization=${ORGANIZATION} --only=id --value
 ```
 create_aws_workspace.sh
 create_gcp_workspace.sh
+create_azure_workspace.sh
 create_app42_workspace.sh
 ```
+
+### Three different browsers
+
+You need to have three isolated browser environments that don't cross login details.   You can probably get away with two browsers with one private window and public window in one browser and another public window in another.  Oddly, three private windows doesn't seem to work (or at least didn't for me).   
+
+I'm running Chrome, Firefox and Safari. But I tested with Chrome and a Public Firefox and Private Firefox as well.   
 
 ### In your TFE SaaS Organization
 * Open up each workspace and add in your credentials.  Check Sensitive.

@@ -11,9 +11,9 @@ create_variables () {
   create_variable owner ${OWNER}
   create_variable ttl ${TTL}
   # Environment variables
-  # DO NOT PUT YOUR AWS_SECRET_ACCESS_KEY HERE!!!   Do this via the GUI
   CATEGORY=env
   create_variable AWS_ACCESS_KEY_ID ${AWS_ACCESS_KEY}
+  create_variable AWS_SECRET_ACCESS_KEY ${AWS_SECRET_ACCESS_KEY}
   create_variable CONFIRM_DESTROY 1
 }
 
@@ -41,5 +41,5 @@ create_variables
 # Create PROD branch workspace
 BRANCH=prod
 WORKSPACE=${WORKSPACE_PREFIX}-${BRANCH}
-create_workspace
-create_variables
+#create_workspace
+#create_variables
