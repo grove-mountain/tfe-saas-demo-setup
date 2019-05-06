@@ -36,6 +36,15 @@ variable "vcs_repo_branch" {
     default     = "master"
 }
 
+# The easiest way to get this variable is to use the following:
+# ATLAS_TOKEN=<User Token for an org>
+# ORGANIZATION=<The org the workspace is going into>
+# TFE_ENDPOINT=<TFE Server Address> (e.g. app.terraform.io)
+# curl -s --header "Authorization: Bearer $ATLAS_TOKEN"   \
+# --header "Content-Type: application/vnd.api+json"   \
+# --request GET https://${TFE_ENDPOINT}/api/v2/organizations/${ORGANIZATION}/oauth-clients \
+#  | jq -r '.data[0].relationships["oauth-tokens"].data[0].id'
+
 variable "vcs_repo_oauth_token_id" {
     description = "Token ID of the VCS Connection (OAuth Conection Token) to use."
 }
