@@ -10,9 +10,9 @@ resource "tfe_workspace" "main_workspace" {
   terraform_version   = "${var.terraform_version}"
 
   vcs_repo {
-    identifier    = "${var.vcs_repo_identifier}"
-    branch        = "${var.vcs_repo_branch}"
-    oath_token_id = "${var.vcs_repo_oauth_token_id}"
+    identifier     = "${var.vcs_repo_identifier}"
+    branch         = "${var.vcs_repo_branch}"
+    oauth_token_id = "${var.vcs_repo_oauth_token_id}"
   }
 
 }
